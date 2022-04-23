@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" media="all" href="../index_files/application.css" data-turbolinks-track="reload">
+    <title>松江Ruby会議プログラミングコンテスト</title>
+  </head>
+
+  <body>
+    <div class="header_bg">
+      <div class="wrapper">
+        <div class="nav-wrap">
+          <ul>
+            <li class="btn btn-default"><a href="../index.html">ランキングを見る</a></li>
+            <li class="btn btn-default"><a href="https://matsue.rubyist.net/matrk08/">松江Ruby会議08のページへ戻る</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="wrapper">
+        <div class="ccheader">
+          <img src="../index_files/logo1.png" alt="Logo1">
+          <img src="../index_files/logo2.png" alt="Logo2">
+        </div>
+        
+        <div class="orange">
+          <h2>プログラミングコンテストについて</h2>
+          <h4>【開催スケジュール】</h4>
+          <ul class="schedule">
+            <li>解答期間: 11/24 〜 12/14</li>
+            <li>結果集計: 12/15(木) 合計時間を再測定します</li>
+            <li>結果発表: 12/17(土) 松江Ruby会議08にて</li>
+          </ul>
+
+          <h4>【表彰】</h4>
+          <ul class="commendation">
+            <li> 一般部門 / 学生部門 各上位3名を表彰します</li>
+            <li>（各部門上位３名には当日賞品を差し上げます。）</li>
+          </ul>
+          <ul class="commendation">
+            <li>※結果は松江Ruby会議08当日に会場にて発表します。</li>
+          </ul>
+          <h4>【評価方法】</h4>
+          <ul class="evaluation">
+            <li>処理速度、ソースコードのバイト数の順で評価します。<br>（どちらも同じ場合は解答日時が早い方を上位とします。）</li>
+          </ul>
+          <h4>【注意事項】</h4>
+          <ul class="notes">
+            <li><strong>ランキングは目安です。同じ投稿でも開始当初と現在では実行時間が多くかかるとの報告があり、解答期間終了後に合計時間を測定し直します。</strong></li>
+            <li>松江Ruby会議08当日会場に来られる方が表彰の対象となります。事前に<a href="https://matsue-rb.doorkeeper.jp/events/52118">こちら</a>より参加登録をお願い致します。</li>
+            <li>メールアドレスは、参加登録時Doorkeeperに登録したものと同一のものを記入してください。（異なるメールアドレスで応募された場合、入賞の対象外となります。）</li>
+            <li>解答いただいたコードは結果にかかわらず、後日Matsue.rbのウェブサイトまたはるびまに掲載させていただく場合があります。</li>
+            <li>応募いただいたコードはシステム上において完全に保存されない場合がありますので、ご自身において必要に応じてバックアップを取るなど、適切なご対応をお願いいたします。</li>
+            <li>いただいたメールアドレスを松江Ruby会議08に関連するご連絡以外には使用いたしません。</li>
+          </ul>
+        </div>
+
+        <div class="orange">
+          <h2>問題：Rubyで迷路を解いてみよう！</h2>
+          <h4>【課題】</h4>
+          <ul class="question">
+            <li>「S」「G」「#」で構成される迷路が与えられます。</li>
+            <li>「S」「G」間をなるべく最短かつ早くクリアできるプログラムを作成してください。</li>
+            <li>「S」から「G」までは解答例のように「:」で経路を表示させて下さい。</li>
+          </ul>
+          <h4>【テストケースと解答表示例】</h4>
+          <ul class="notes">
+            <li>NxN で構成される以下のようなテストケースが与えられます。</li>
+            <li>10≦N≦100となる迷路を生成します。</li>
+          </ul>
+          <div class="sample-img">
+            <h4>&lt;テストケースサンプル&gt;</h4>
+            <img src="../index_files/testcase.png" alt="Testcase" width="75" height="150">
+          </div>
+          <div class="sample-img">
+            <h4>&lt;解答表示例&gt;</h4>
+            <img src="../index_files/example.png" alt="Example" width="75" height="150">
+          </div>
+
+          <hr>
+
+          <div class="local_sample_wrap">
+            <h4>【ローカルでの実行方法】</h4>
+
+            <h5>1. ローカル環境用のファイルをダウンロード</h5>
+
+            <p>以下のURLからファイルをダウンロードし、解凍してください。</p>
+            <p><a href="">http://procon.eastback.jp/local_sample.zip</a></p>
+
+            <p>展開すると以下のようなファイル構成になります。</p>
+
+            <pre>          local_sample
+            ├─ run.rb
+            └─ solve.rb
+            </pre>
+
+
+            <h5>2. 動作確認</h5>
+
+            <p>コンソールを起動して、展開したディレクトリーへ移動後、以下のコマンドを実行してみてください。</p>
+
+            <pre>          $ ruby run.rb
+            </pre>
+
+            <p>以下のような出力結果になると思います。</p>
+
+            <pre>          ## input
+
+            ###########
+            S #     # #
+            # # ### # #
+            #   #   # #
+            ##### ### #
+            #     #   #
+            # ### # ###
+            #   # # # #
+            ### ### # #
+            #         G
+            ###########
+
+
+            ## output
+
+            ###########
+            S #     # #
+            # # ### # #
+            #   #   # #
+            ##### ### #
+            #     #   #
+            # ### # ###
+            #   # # # #
+            ### ### # #
+            #         G
+            ###########
+
+
+            ## result
+
+            false
+            </pre>
+
+            <h5>3. 処理を書く</h5>
+
+            <p><b>solve.rb</b>に迷路を解くRubyのコードを記述してください。<br>（solve.rbの中身は下記のようになります。）</p>
+
+            <pre>            maze_ary = STDIN.each_line.map(&amp;:chomp)
+
+              # ここに処理を書いてください。
+
+              puts(maze_ary)
+            </pre>
+
+            <p>記述が終わりましたらrun.rbを実行して動作確認を行ってください。</p>
+
+            <p>正解になると以下のような表示になります。</p>
+
+            <pre>          ## input
+
+            ###########
+            S #     # #
+            # # ### # #
+            #   #   # #
+            ##### ### #
+            #     #   #
+            # ### # ###
+            #   # # # #
+            ### ### # #
+            #         G
+            ###########
+
+
+            ## output
+
+            ###########
+            S:#:::::# #
+            #:#:###:# #
+            #:::#:::# #
+            #####:### #
+            #:::::#   #
+            #:### # ###
+            #:::# # # #
+            ###:### # #
+            #  :::::::G
+            ###########
+
+
+            ## result
+
+            true
+            </pre>
+
+
+            <h5>4.応用編</h5>
+            <p>慣れてきたら、run.rbの以下の部分を変更してマップを変更して実行しても正解になるかどうか確認してみてください。（左の数字は行数です。）</p>
+
+            <pre>
+            5 ###########
+            6 S:#:::::# #
+            7 #:#:###:# #
+            8 #:::#:::# #
+            9 #####:### #
+            10 #:::::#   #
+            11 #:### # ###
+            12 #:::# # # #
+            13 ###:### # #
+            14 #  :::::::G
+            15 ###########
+
+            </pre>
+
+            <h5>5.応募方法</h5>
+
+            <p>ローカル環境で正解することができたら、いよいよ応募してみましょう。</p>
+            <p>以下の入力フォームに<b>ニックネーム</b>、<b>メールアドレス</b>、<b>solve.rbに記述したコード</b>を入力して応募ボタンをクリックしてください。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
